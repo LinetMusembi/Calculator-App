@@ -6,37 +6,78 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.coroutines.newFixedThreadPoolContext
 
 class MainActivity : AppCompatActivity() {
-     lateinit var btnAdd:Button
-     lateinit var btnSubtract:Button
-     lateinit var btnMultiply:Button
-     lateinit var btnModulus:Button
-     lateinit var textView: TextView
-   lateinit var etNumber1:EditText
-   lateinit var etNumber2:EditText
-   lateinit var number: Number
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        btnAdd=findViewById(R.id.btnAdd)
-        btnSubtract=findViewById(R.id.btnSubtract)
-        btnMultiply=findViewById(R.id.btnMultiply)
-        btnModulus=findViewById(R.id.btnModulus)
-        textView=findViewById(R.id.answer)
-        etNumber1=findViewById(R.id.etNumber1)
-        etNumber2=findViewById(R.id.etNumber2)
+        addNumbers()
+        subNumbers()
+        multiplyNums()
+        modulusNums()
+
+
 
     }
+    fun addNumbers(){
+        var num1 = findViewById<EditText>(R.id.etNumber1)
+        var num2 = findViewById<EditText>(R.id.etNumber2)
+        var button = findViewById<Button>(R.id.btnAdd)
 
-    override fun onResume() {
+        button.setOnClickListener {
 
+            var sum = num1.text.toString().toInt()
+            var sum2 = num2.text.toString().toInt()
+            var res = sum+sum2
+
+            Toast.makeText(this,  "$res", Toast.LENGTH_LONG).show()
+        }
     }
+    fun subNumbers(){
+        var num1 = findViewById<EditText>(R.id.etNumber1)
+        var num2 = findViewById<EditText>(R.id.etNumber2)
+        var button = findViewById<Button>(R.id.btnSubtract)
+
+        button.setOnClickListener {
+
+            var sum = num1.text.toString().toInt()
+            var sum2 = num2.text.toString().toInt()
+            var res = sum-sum2
+
+            Toast.makeText(this,  "$res", Toast.LENGTH_LONG).show()
+        }
+    }
+    fun multiplyNums(){
+        var num1 = findViewById<EditText>(R.id.etNumber1)
+        var num2 = findViewById<EditText>(R.id.etNumber2)
+        var button = findViewById<Button>(R.id.btnMultiply)
+
+        button.setOnClickListener {
+
+            var sum = num1.text.toString().toInt()
+            var sum2 = num2.text.toString().toInt()
+            var res = sum*sum2
+
+            Toast.makeText(this,  "$res", Toast.LENGTH_LONG).show()
+        }
+    }
+    fun modulusNums(){
+        var num1 = findViewById<EditText>(R.id.etNumber1)
+        var num2 = findViewById<EditText>(R.id.etNumber2)
+        var button = findViewById<Button>(R.id.btnModulus)
+
+        button.setOnClickListener {
+
+            var sum = num1.text.toString().toInt()
+            var sum2 = num2.text.toString().toInt()
+            var res = sum%sum2
+
+            Toast.makeText(this,  "$res", Toast.LENGTH_LONG).show()
+        }
+    }
+
 
 
     }
